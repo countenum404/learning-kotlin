@@ -1,10 +1,14 @@
 package profile
 
 fun main() {
-    val p = Person()
-    println("${p.name} is ${p.age} y.o.")
-    p.sayHello()
-    p.run()
+    val p = Person(
+        name = "Denis",
+        lastName = "Shabashov",
+        height = 186,
+        weight = 90,
+        age = 25
+    )
 
-    User(1, "Denis", "Shabashov")
+    p.age = 24
+    println(p.age)
 }

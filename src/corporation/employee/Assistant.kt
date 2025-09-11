@@ -4,7 +4,7 @@ class Assistant(
     id: Int,
     name: String,
     age: Int = 0
-): Employee(id, name = name, age = age, employeeType = EmployeeType.ASSISTANT), Supplier {
+): Employee(id = id, name = name, age = age, employeeType = EmployeeType.ASSISTANT), Supplier {
     fun bringCoffee(drink: String = "Cappuccino"): String {
         println("$name saying that $drink coffee is done")
         return drink

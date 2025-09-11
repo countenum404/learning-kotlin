@@ -1,7 +1,5 @@
 package corporation.cards
 
-import corporation.cards.ProductType
-
 class GroceriesCard(
     name: String = "",
     brand: String = "",
@@ -27,6 +25,6 @@ class GroceriesCard(
     }
 
     override fun toString(): String {
-        return "${super.toString()} IsPacked: $isPacked Number: $number Product: $productType"
+        return "Name: $name Brand: $brand Price: $price\" IsPacked: $isPacked Number: $number Product: $productType"
     }
 }

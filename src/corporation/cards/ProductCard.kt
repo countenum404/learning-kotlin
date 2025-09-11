@@ -1,7 +1,5 @@
 package corporation.cards
 
-import corporation.cards.ProductType
-
 abstract class ProductCard(
     val name: String = "",
     val brand: String = "",
@@ -14,7 +12,4 @@ abstract class ProductCard(
         return "$name%$brand%$price"
     }
 
-    override fun toString(): String {
-        return "Name: $name Brand: $brand Price: $price"
-    }
 }

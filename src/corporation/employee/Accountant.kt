@@ -19,8 +19,8 @@ class Accountant(
     private val productCardsFile = File("product_cards.txt")
     private val employeesFile = File("employees.txt")
 
-    private var cards: MutableList<ProductCard> = readCardsFromFile()
-    private var employees: MutableList<Employee> = readEmployeesFromFile()
+    private var cards: MutableList<ProductCard> = mutableListOf()
+    private var employees: MutableList<Employee> = mutableListOf()
 
     override fun work() {
         isWorking = true
@@ -50,6 +50,22 @@ class Accountant(
                     writeAllEmployees()
                 }
 
+                OperationCode.CHANGE_SALARY -> {
+                    employees = readEmployeesFromFile()
+
+                    println("Type id: ")
+                    val id: Int = readln().toInt()
+                    println("Type salary: ")
+                    val salary: Int = readln().toInt()
+
+                    for (employee in employees) {
+                        if (employee.id == id) {
+                            employee.salary = salary
+                            break
+                        }
+                    }
+                    writeAllEmployees()
+                }
             }
         }
     }
@@ -63,12 +79,22 @@ class Accountant(
             questionary = "Choose position: ",
             entries = EmployeeType.entries
         ))
-        println("Enter id")
+
+        print("Enter id: ")
         val id = readln().toInt()
-        println("Enter name")
+        println()
+
+        print("Enter name: ")
         val name = readln()
-        println("Enter age")
+        println()
+
+        print("Enter age: ")
         val age = readln().toInt()
+        println()
+
+        print("Enter salary: ")
+        val salary = readln().toInt()
+        println()
 
         val employee: Employee = when (EmployeeType.entries[option]) {
             EmployeeType.ASSISTANT -> Assistant(id = id, name = name, age = age)
@@ -76,6 +102,7 @@ class Accountant(
             EmployeeType.DIRECTOR -> Director(id = id, name = name, age = age)
             EmployeeType.ACCOUNTANT -> Accountant(id = id, name = name, age = age)
         }
+        employee.salary = salary
         appendEmployeeToFile(employee)
     }
 
@@ -235,7 +262,8 @@ class Accountant(
             val id = properties[0].toInt()
             val name = properties[1]
             val age = properties[2].toInt()
-            val employeeType = properties[3]
+            val salary = properties[3].toInt()
+            val employeeType = properties[4]
 
             val employee = when (EmployeeType.valueOf(employeeType)) {
                 EmployeeType.ASSISTANT -> Assistant(id = id, name = name, age = age)
@@ -243,6 +271,7 @@ class Accountant(
                 EmployeeType.DIRECTOR -> Director(id = id, name = name, age = age)
                 EmployeeType.ACCOUNTANT -> Accountant(id = id, name = name, age = age)
             }
+            employee.salary = salary
             employeeList.add(employee)
         }
         return employeeList
@@ -275,4 +304,5 @@ class Accountant(
     override fun buyThings() {
         println("$employeeType $name is buying things")
     }
+
 }

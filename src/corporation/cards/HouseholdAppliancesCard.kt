@@ -1,7 +1,5 @@
 package corporation.cards
 
-import corporation.cards.ProductType
-
 class HouseholdAppliancesCard(
     name: String = "",
     brand: String = "",
@@ -23,5 +21,9 @@ class HouseholdAppliancesCard(
 
     override fun serialize(): String {
         return "${super.serialize()}%$power%$productType"
+    }
+
+    override fun toString(): String {
+        return "Name: $name Brand: $brand Price: $price Power: $power"
     }
 }

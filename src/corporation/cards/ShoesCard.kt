@@ -1,7 +1,5 @@
 package corporation.cards
 
-import corporation.cards.ProductType
-
 class ShoesCard(
     name: String = "",
     brand: String = "",
@@ -22,5 +20,9 @@ class ShoesCard(
 
     override fun serialize(): String {
         return "${super.serialize()}%$size%$productType"
+    }
+
+    override fun toString(): String {
+        return "Name: $name Brand: $brand Price: $price Size: $size"
     }
 }

@@ -9,7 +9,8 @@ enum class OperationCode(
     REMOVE_CARD("Remove Item"),
     REGISTER_NEW_EMPLOYEE("Register new employee"),
     FIRE_EMPLOYEE("Fire an employee"),
-    SHOW_ALL_EMPLOYEES("Show all employees");
+    SHOW_ALL_EMPLOYEES("Show all employees"),
+    CHANGE_SALARY("Change salary");
 
     override fun getTitle(): String {
         return title
