@@ -1,9 +1,9 @@
 package corporation.cards
 
-class HouseholdAppliancesCard(
-    name: String = "",
-    brand: String = "",
-    price: Int = 0,
+data class HouseholdAppliancesCard(
+    override val name: String = "",
+    override val brand: String = "",
+    override val price: Int = 0,
     val power: Int = 220
 ): ProductCard(
     name = name,
