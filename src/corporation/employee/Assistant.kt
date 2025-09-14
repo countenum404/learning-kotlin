@@ -1,10 +1,10 @@
 package corporation.employee
 
-class Assistant(
-    id: Int,
-    name: String,
-    age: Int = 0,
-    salary: Int = 15000
+data class Assistant(
+    override val id: Int,
+    override val name: String,
+    override val age: Int = 0,
+    override val salary: Int = 15000
 ): Employee(id, name, age, salary, employeeType = EmployeeType.ASSISTANT), Supplier {
     fun bringCoffee(drink: String = "Cappuccino"): String {
         println("$name saying that $drink coffee is done")

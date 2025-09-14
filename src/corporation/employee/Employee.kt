@@ -1,11 +1,11 @@
 package corporation.employee
 
 abstract class Employee(
-    val id: Int,
-    val name: String,
-    val age: Int,
-    val salary: Int,
-    val employeeType: EmployeeType
+    open val id: Int,
+    open val name: String,
+    open val age: Int,
+    open val salary: Int,
+    open val employeeType: EmployeeType
 ) {
 
     abstract fun work()

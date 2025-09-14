@@ -11,7 +11,7 @@ import java.io.File
 object EmployeesRepository {
     private val employeesFile = File("employees.txt")
 
-    private val _employees: MutableList<Employee> = readEmployeesFromFile()
+    private val _employees = readEmployeesFromFile()
     val employees: List<Employee>
         get() = _employees.toList()
 
@@ -34,20 +34,22 @@ object EmployeesRepository {
     }
 
     fun changeAge(id: Int, age: Int) {
-        for ((index, employee) in _employees.withIndex()) {
+        for (employee in _employees) {
             if (employee.id == id) {
                 val newEmployee = employee.copy(age = age)
-                _employees[index] = newEmployee
+                _employees.remove(employee)
+                _employees.add(newEmployee)
                 break
             }
         }
     }
 
     fun changeSalary(id: Int, salary: Int){
-        for ((index, employee) in _employees.withIndex()) {
+        for (employee in _employees) {
             if (employee.id == id) {
                 val newEmployee = employee.copy(salary = salary)
-                _employees[index] = newEmployee
+                _employees.remove(employee)
+                _employees.add(newEmployee)
                 break
             }
         }
@@ -62,14 +64,14 @@ object EmployeesRepository {
         employeesFile.writeText(content.toString())
     }
 
-    private fun readEmployeesFromFile(): MutableList<Employee> {
-        val employeeList: MutableList<Employee> = mutableListOf()
+    private fun readEmployeesFromFile(): MutableSet<Employee> {
+        val employees = mutableSetOf<Employee>()
 
         if (!employeesFile.exists()) employeesFile.createNewFile()
 
         val content = employeesFile.readText().trim()
 
-        if (content.isEmpty()) return employeeList
+        if (content.isEmpty()) return employees
 
         for (line in content.split("\n")) {
             if (line == "") continue
@@ -86,8 +88,8 @@ object EmployeesRepository {
                 EmployeeType.DIRECTOR -> Director(id = id, name = name, age = age, salary = salary)
                 EmployeeType.ACCOUNTANT -> Accountant(id = id, name = name, age = age, salary = salary)
             }
-            employeeList.add(employee)
+            employees.add(employee)
         }
-        return employeeList
+        return employees
     }
 }
