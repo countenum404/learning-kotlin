@@ -36,4 +36,13 @@ abstract class Employee(
         return true
     }
 
+    override fun hashCode(): Int {
+        var result = id
+        result = 31 * result + age
+        result = 31 * result + salary
+        result = 31 * result + name.hashCode()
+        result = 31 * result + employeeType.hashCode()
+        return result
+    }
+
 }
