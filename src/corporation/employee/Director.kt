@@ -1,10 +1,10 @@
 package corporation.employee
 
-class Director(
-    id: Int,
-    name: String,
-    age: Int = 0,
-    salary: Int = 15000
+data class Director(
+    override val id: Int,
+    override val name: String,
+    override val age: Int = 0,
+    override val salary: Int = 15000
 ): Employee(id, name, age, salary, employeeType = EmployeeType.DIRECTOR), Supplier {
     fun takeCoffee(assistant: Assistant, drinkName: String) {
         println("Director $name asked ${assistant.name} to bring a coffee")
