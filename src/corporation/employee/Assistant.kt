@@ -3,8 +3,9 @@ package corporation.employee
 class Assistant(
     id: Int,
     name: String,
-    age: Int = 0
-): Employee(id = id, name = name, age = age, employeeType = EmployeeType.ASSISTANT), Supplier {
+    age: Int = 0,
+    salary: Int = 15000
+): Employee(id, name, age, salary, employeeType = EmployeeType.ASSISTANT), Supplier {
     fun bringCoffee(drink: String = "Cappuccino"): String {
         println("$name saying that $drink coffee is done")
         return drink
@@ -16,5 +17,9 @@ class Assistant(
 
     override fun buyThings() {
         println("$employeeType $name is buying things")
+    }
+
+    override fun copy(age: Int, salary: Int): Assistant {
+        return Assistant(id = this.id, name = this.name, age = age, salary = salary)
     }
 }

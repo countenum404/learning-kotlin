@@ -9,24 +9,26 @@ import java.io.File
 
 object CardsRepository {
     private val productCardsFile = File("product_cards.txt")
-    val cards: MutableList<ProductCard> = readCardsFromFile()
+    private val _cards: MutableList<ProductCard> = readCardsFromFile()
+    val cards: List<ProductCard>
+        get() = _cards.toList()
 
     fun removeCardByName(name: String) {
-        for (card in cards) {
+        for (card in _cards) {
             if (card.name == name) {
-                cards.remove(card)
+                _cards.remove(card)
                 break
             }
         }
     }
 
     fun save(productCard: ProductCard) {
-        cards.add(productCard)
+        _cards.add(productCard)
     }
 
     fun saveChanges() {
         val content = StringBuilder()
-        for (card in cards) {
+        for (card in _cards) {
             content.append(card.serialize())
             content.append("\n")
         }

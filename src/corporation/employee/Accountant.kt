@@ -15,11 +15,12 @@ class Accountant(
     id: Int,
     name: String,
     age: Int,
+    salary: Int = 15000,
     var isWorking: Boolean = false
-): Employee(id, name, age, employeeType = EmployeeType.ACCOUNTANT), Cleaner, Supplier {
+): Employee(id, name, age, salary, employeeType = EmployeeType.ACCOUNTANT), Cleaner, Supplier {
 
-    private val employeesRepository = EmployeesRepository
-    private val cardsRepository = CardsRepository
+    val employeesRepository = EmployeesRepository
+    val cardsRepository = CardsRepository
 
     override fun work() {
         isWorking = true
@@ -56,8 +57,19 @@ class Accountant(
                     val salary: Int = readln().toInt()
                     employeesRepository.changeSalary(id, salary)
                 }
+                OperationCode.CHANGE_AGE -> {
+                    println("Type id: ")
+                    val id: Int = readln().toInt()
+                    println("Type age: ")
+                    val age: Int = readln().toInt()
+                    employeesRepository.changeAge(id, age)
+                }
             }
         }
+    }
+
+    override fun copy(age: Int, salary: Int): Accountant {
+        return Accountant(id = this.id, name = this.name, age = age, salary = salary)
     }
 
     override fun clean() {
@@ -87,12 +99,11 @@ class Accountant(
         println()
 
         val employee: Employee = when (EmployeeType.entries[option]) {
-            EmployeeType.ASSISTANT -> Assistant(id = id, name = name, age = age)
-            EmployeeType.CONSULTANT -> Consultant(id = id, name = name, age = age)
-            EmployeeType.DIRECTOR -> Director(id = id, name = name, age = age)
-            EmployeeType.ACCOUNTANT -> Accountant(id = id, name = name, age = age)
+            EmployeeType.ASSISTANT -> Assistant(id = id, name = name, age = age, salary = salary)
+            EmployeeType.CONSULTANT -> Consultant(id = id, name = name, age = age, salary = salary)
+            EmployeeType.DIRECTOR -> Director(id = id, name = name, age = age, salary = salary)
+            EmployeeType.ACCOUNTANT -> Accountant(id = id, name = name, age = age, salary = salary)
         }
-        employee.salary = salary
         employeesRepository.save(employee)
     }
 

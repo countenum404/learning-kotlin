@@ -11,25 +11,38 @@ import java.io.File
 object EmployeesRepository {
     private val employeesFile = File("employees.txt")
 
-    val employees: MutableList<Employee> = readEmployeesFromFile()
+    private val _employees: MutableList<Employee> = readEmployeesFromFile()
+    val employees: List<Employee>
+        get() = _employees.toList()
 
     fun save(employee: Employee) {
-        employees.add(employee)
+        _employees.add(employee)
     }
 
     fun fireEmployeeById(id: Int) {
-        for (employee in employees) {
+        for (employee in _employees) {
             if (employee.id == id) {
-                employees.remove(employee)
+                _employees.remove(employee)
+                break
+            }
+        }
+    }
+
+    fun changeAge(id: Int, age: Int) {
+        for ((index, employee) in _employees.withIndex()) {
+            if (employee.id == id) {
+                val newEmployee = employee.copy(age = age)
+                _employees[index] = newEmployee
                 break
             }
         }
     }
 
     fun changeSalary(id: Int, salary: Int){
-        for (employee in employees) {
+        for ((index, employee) in _employees.withIndex()) {
             if (employee.id == id) {
-                employee.salary = salary
+                val newEmployee = employee.copy(salary = salary)
+                _employees[index] = newEmployee
                 break
             }
         }
@@ -37,7 +50,7 @@ object EmployeesRepository {
 
     fun saveChanges() {
         val content = StringBuilder()
-        for (employee in employees) {
+        for (employee in _employees) {
             content.append(employee.serialize())
             content.append("\n")
         }
@@ -63,12 +76,11 @@ object EmployeesRepository {
             val employeeType = properties[4]
 
             val employee = when (EmployeeType.valueOf(employeeType)) {
-                EmployeeType.ASSISTANT -> Assistant(id = id, name = name, age = age)
-                EmployeeType.CONSULTANT -> Consultant(id = id, name = name, age = age)
-                EmployeeType.DIRECTOR -> Director(id = id, name = name, age = age)
-                EmployeeType.ACCOUNTANT -> Accountant(id = id, name = name, age = age)
+                EmployeeType.ASSISTANT -> Assistant(id = id, name = name, age = age, salary = salary)
+                EmployeeType.CONSULTANT -> Consultant(id = id, name = name, age = age, salary = salary)
+                EmployeeType.DIRECTOR -> Director(id = id, name = name, age = age, salary = salary)
+                EmployeeType.ACCOUNTANT -> Accountant(id = id, name = name, age = age, salary = salary)
             }
-            employee.salary = salary
             employeeList.add(employee)
         }
         return employeeList
