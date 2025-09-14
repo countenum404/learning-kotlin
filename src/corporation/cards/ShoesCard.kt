@@ -1,9 +1,9 @@
 package corporation.cards
 
-class ShoesCard(
-    name: String = "",
-    brand: String = "",
-    price: Int = 0,
+data class ShoesCard(
+    override val name: String = "",
+    override val brand: String = "",
+    override val price: Int = 0,
     var size: Float = 0.0f,
 ): ProductCard(
     name = name,

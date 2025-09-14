@@ -9,7 +9,7 @@ import java.io.File
 
 object CardsRepository {
     private val productCardsFile = File("product_cards.txt")
-    private val _cards: MutableList<ProductCard> = readCardsFromFile()
+    private val _cards = readCardsFromFile()
     val cards: List<ProductCard>
         get() = _cards.toList()
 
@@ -35,8 +35,8 @@ object CardsRepository {
         productCardsFile.writeText(content.toString())
     }
 
-    private fun readCardsFromFile(): MutableList<ProductCard> {
-        val items = mutableListOf<ProductCard>()
+    private fun readCardsFromFile(): MutableSet<ProductCard> {
+        val items = mutableSetOf<ProductCard>()
 
         if (!productCardsFile.exists()) productCardsFile.createNewFile()
 

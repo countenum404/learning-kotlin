@@ -1,9 +1,9 @@
 package corporation.cards
 
-class GroceriesCard(
-    name: String = "",
-    brand: String = "",
-    price: Int = 0,
+data class GroceriesCard(
+    override val name: String = "",
+    override val brand: String = "",
+    override val price: Int = 0,
     val isPacked: Boolean = false,
     val number: Int = 0
 ): ProductCard(

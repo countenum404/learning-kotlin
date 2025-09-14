@@ -1,10 +1,10 @@
 package corporation.cards
 
 abstract class ProductCard(
-    val name: String = "",
-    val brand: String = "",
-    val price: Int = 0,
-    val productType: ProductType
+    open val name: String = "",
+    open val brand: String = "",
+    open val price: Int = 0,
+    open val productType: ProductType
 ) {
     abstract fun  printInfo()
 
