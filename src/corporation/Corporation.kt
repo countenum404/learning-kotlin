@@ -2,6 +2,7 @@ package corporation
 
 import corporation.employee.Accountant
 import corporation.employee.Consultant
+import homework.tasks.Employee
 
 
 fun main() {

@@ -16,6 +16,11 @@ object EmployeesRepository {
         get() = _employees.toList()
 
     fun save(employee: Employee) {
+        for (e in _employees) {
+            if (e == employee) {
+                return
+            }
+        }
         _employees.add(employee)
     }
 

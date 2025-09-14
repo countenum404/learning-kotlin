@@ -19,4 +19,21 @@ abstract class Employee(
     override fun toString(): String {
         return "Id: $id, Name: $name, Age: $age, Salary: $salary Position: ${employeeType.getTitle()} "
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Employee
+
+        when {
+            id != other.id -> return false
+            age != other.age -> return false
+            salary != other.salary -> return false
+            name != other.name -> return false
+            employeeType != other.employeeType -> return false
+        }
+        return true
+    }
+
 }
