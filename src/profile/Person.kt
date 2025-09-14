@@ -1,6 +1,6 @@
 package profile
 
-class Person(
+data class Person(
     private var name: String = "",
     var lastName: String = "",
     private var height: Int = 0,

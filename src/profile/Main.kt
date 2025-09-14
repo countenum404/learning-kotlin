@@ -1,14 +1,27 @@
 package profile
 
 fun main() {
-    val p = Person(
-        name = "Denis",
-        lastName = "Shabashov",
+    val person = Person(
+        name = "Jhon",
+        lastName = "Smith",
         height = 186,
         weight = 90,
-        age = 25
+        age = 30
     )
 
-    p.age = 24
-    println(p.age)
+    val anotherPerson = Person(
+        name = "Jhon",
+        lastName = "Smith",
+        height = 186,
+        weight = 90,
+        age = 30
+    )
+
+    val personThree = person.copy(name = "Nick")
+
+    val peoples = setOf(person, anotherPerson, personThree)
+
+    for (people in peoples) {
+        println(people)
+    }
 }
