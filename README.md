@@ -86,7 +86,7 @@
 ---
 
 ### 4. Diving into the Kotlin
-**Progress:** 2/10 тем (20%)  
+**Progress:** 2/10 topics (20%)  
 [==................]
 
 | #    | Topic                                |   Status    | Description                                                              |
