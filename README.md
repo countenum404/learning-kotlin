@@ -86,18 +86,23 @@
 ---
 
 ### 4. Diving into the Kotlin
-**Progress:** 2/10 topics (20%)  
-[==................]
+**Progress:** 10/10 topics (20%)  
+[================]
 
-| #    | Topic                                |   Status    | Description                                                              |
-|------|--------------------------------------|:-----------:|--------------------------------------------------------------------------|
-| 4.1  | Getters and Setters. Part 1          |      ✅      | Custom Accessors for Properties                                          |
-| 4.2  | Getters and Setters. Part 2          |      ✅      | Advanced Use of Accessors                                                |
-| 4.3  | Single Responsibility Principle      |      ✅      | Single Responsibility Principle (SOLID)                                  |
-| 4.4  | Refactoring and StringBuilder        |   ️     ✅   | Optimizing String Handling                                               |
-| 4.5  | Singleton Object                     |      ✅      | The `object` keyword for creating singletons                             |
-| 4.6  | Backing Field                        |      ✅      | `field` inside custom accessors                                          |
-| 4.7  | The copy method                      |      ✅      | Creating copies of data class objects                                    |
-| 4.8  | The equals method                    |      ✅      | Overriding the logic of comparing objects                                |
-| 4.9  | The hashcode method. Set collections |      ✅      | Contract between `equals` and `hashCode`, working with `Set`             |
-| 4.10 | Data Classes                         |      ✅      | Automatic generation of `toString`, `equals`, `hashCode`, `copy` methods |
+| #    | Topic                                | Status | Description                                                              |
+|------|--------------------------------------|:------:|--------------------------------------------------------------------------|
+| 4.1  | Getters and Setters. Part 1          |   ✅    | Custom Accessors for Properties                                          |
+| 4.2  | Getters and Setters. Part 2          |   ✅    | Advanced Use of Accessors                                                |
+| 4.3  | Single Responsibility Principle      |   ✅    | Single Responsibility Principle (SOLID)                                  |
+| 4.4  | Refactoring and StringBuilder        |   ✅    | Optimizing String Handling                                               |
+| 4.5  | Singleton Object                     |   ✅    | The `object` keyword for creating singletons                             |
+| 4.6  | Backing Field                        |   ✅    | `field` inside custom accessors                                          |
+| 4.7  | The copy method                      |   ✅    | Creating copies of data class objects                                    |
+| 4.8  | The equals method                    |   ✅    | Overriding the logic of comparing objects                                |
+| 4.9  | The hashcode method. Set collections |   ✅    | Contract between `equals` and `hashCode`, working with `Set`             |
+| 4.10 | Data Classes                         |   ✅    | Automatic generation of `toString`, `equals`, `hashCode`, `copy` methods |
+| 4.11 | Additional copy method details       |   ✅    | Deep copy and advanced copy usage                                        |
+| 4.12 | Nullable Types                       |   ✅    | Working with nullable types and null safety                              |
+| 4.13 | Elvis and Unit                       |   ✅    | Elvis operator (`?:`) and Unit return type                               |
+| 4.14 | Try catch                            |   ✅    | Exception handling with try-catch blocks                                 |
+| 4.15 | Nothing                              |   ✅    | The `Nothing` type for functions that never return                       |
