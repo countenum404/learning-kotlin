@@ -14,4 +14,7 @@ fun main() {
     val director = EmployeesRepository.findDirector()
     println(director)
 
+    val directorSalary = director?.salary ?: 0
+    val assistantSalary = assistant?.salary ?: 0
+    println(directorSalary + assistantSalary)
 }
