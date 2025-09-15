@@ -33,6 +33,24 @@ object EmployeesRepository {
         }
     }
 
+    fun findAssistant(): Assistant? {
+        for (employee in _employees) {
+            if (employee is Assistant) {
+                return employee
+            }
+        }
+        return null
+    }
+
+    fun findDirector(): Director? {
+        for (employee in _employees) {
+            if (employee is Director) {
+                return employee
+            }
+        }
+        return null
+    }
+
     fun changeAge(id: Int, age: Int) {
         for (employee in _employees) {
             if (employee.id == id) {
