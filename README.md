@@ -1,6 +1,6 @@
 # My kotlinmanship chalange
 
-**Overall Progress:** 45/114 Topics (39.5%)
+**Overall Progress:** 50/114 Topics (43.8%)
 [===>...................]
 
 ---
@@ -86,7 +86,7 @@
 ---
 
 ### 4. Diving into the Kotlin
-**Progress:** 10/10 topics (20%)  
+**Progress:** 10/10 topics (100%)  
 [================]
 
 | #    | Topic                                | Status | Description                                                              |
